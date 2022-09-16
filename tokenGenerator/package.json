@@ -1,0 +1,23 @@
+{
+  "name": "erc20-generator",
+  "version": "0.0.1",
+  "description": "Contracts to generate new tokens on the fly",
+  "main": "index.js",
+  "scripts": {
+    "token-ganache": "npx hardhat run scripts/deploy.ts --network ganache",
+    "token-local": "npx hardhat run scripts/deploy.ts",
+    "console-ganache": "npx hardhat console --network ganache",
+    "console-local": "npx hardhat console",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.1.1",
+    "hardhat": "^2.11.1"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.7.3",
+    "ethers": "^5.6.9"
+  }
+}

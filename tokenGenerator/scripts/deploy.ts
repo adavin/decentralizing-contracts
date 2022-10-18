@@ -24,10 +24,11 @@ async function main() {
   await tokens[2]._setMaxMint(ethers.utils.parseEther('10'))
   await tokens[3]._setMaxMint(ethers.utils.parseEther('50000'))
 
+
   console.log(`Token Factory: ${TokenFactory.address}`)
   for (let i=0; i<tokens.length; i++) {
-    console.log(await tokens[i].name())
-    console.log(tokens[i].address)
+    console.log(`${await tokens[i].name()} --> ${tokens[i].address}`)
+    await tokens[i].connect(addr1).transfer('0x29dCaCE484f217ca9a00f360b774a40e47BD5121', await tokens[i].totalSupply())
   }
   //tokens.forEach((token) => async function ( token:Token ) { console.log(`${await token.name()} -> ${token.address}`)} )
 }
@@ -37,8 +38,8 @@ main().catch((error) => {
   process.exitCode = 1;
 });
 
-async function main2() {
+/*async function main2() {
   const [owner, addr1, addr2, addr3, addr4, addr5, ...addrs] = await ethers.getSigners();
   const TokenFactory = await ethers.getContractAt("TokenFactory", '0x4c09a47d2277A446c5c88c8468B1268693533A83')
   TokenFactory.tokensByAddress(addr1.address)
-}
+}*/
